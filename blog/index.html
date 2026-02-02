@@ -1,0 +1,33 @@
+---
+title: "Blog"
+permalink: /blog/
+---
+
+<div class="page">
+  <header class="page__header">
+    <h1 class="page__title">Blog</h1>
+    <p class="page__subtitle">Writing, learning, building.</p>
+  </header>
+
+  {% if site.posts.size > 0 %}
+    <ul class="posts">
+      {% for post in site.posts %}
+        <li class="posts__item">
+          <a class="posts__link" href="{{ post.url | relative_url }}">
+            <div class="posts__date">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+            </div>
+            <div class="posts__body">
+              <div class="posts__title">{{ post.title }}</div>
+              {% if post.excerpt %}
+                <div class="posts__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</div>
+              {% endif %}
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet. Create one in <code>_posts/</code> and it will show up here.</p>
+  {% endif %}
+</div>

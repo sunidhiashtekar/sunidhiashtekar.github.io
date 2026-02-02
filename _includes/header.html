@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand__name">{{ site.title }}</span>
+      <span class="brand__tag">{{ site.description }}</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="{{ '/' | relative_url }}">Home</a>
+      <a class="nav__link" href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a class="nav__link" href="{{ '/about/' | relative_url }}">About</a>
+      <a class="nav__link" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </div>
+</header>

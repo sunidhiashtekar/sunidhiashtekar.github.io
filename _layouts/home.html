@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <p class="hero__kicker">Hello, I’m</p>
+  <h1 class="hero__title">Sunidhi Ashtekar.</h1>
+  <p class="hero__lead">
+    This is my corner of the internet: short notes, longer essays, and projects I’m building.
+  </p>
+  <div class="hero__cta">
+    <a class="btn" href="{{ '/blog/' | relative_url }}">Read the blog</a>
+    <a class="btn btn--ghost" href="{{ '/about/' | relative_url }}">About me</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__header">
+    <h2 class="section__title">Latest Posts</h2>
+    <a class="section__link" href="{{ '/blog/' | relative_url }}">All posts →</a>
+  </div>
+
+  {% assign recent = site.posts | slice: 0, 5 %}
+  {% if recent.size > 0 %}
+    <ul class="cards">
+      {% for post in recent %}
+        <li class="card">
+          <a class="card__link" href="{{ post.url | relative_url }}">
+            <div class="card__meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+            </div>
+            <h3 class="card__title">{{ post.title }}</h3>
+            {% if post.excerpt %}
+              <p class="card__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet. Your first post is ready in <code>_posts/</code>.</p>
+  {% endif %}
+</section>
