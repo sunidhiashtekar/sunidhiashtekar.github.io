@@ -6,7 +6,7 @@ author:
 # Hosting notes:
 # - If this is a GitHub *user* site repo named <username>.github.io, keep baseurl empty.
 # - If this is a GitHub *project* site repo, set baseurl to "/<repo-name>".
-url: ""
+url: "https://sunidhiashtekar.github.io"
 baseurl: ""
 
 timezone: "America/New_York"

@@ -5,7 +5,7 @@ This is a simple Jekyll-powered personal website + blog that can be hosted on Gi
 ## Publish On GitHub Pages
 
 1. Create a new GitHub repo:
-   - Best option (user site): `<your-github-username>.github.io`
+   - Best option (user site): `<your-github-username>.github.io` (for you: `sunidhiashtekar.github.io`)
    - Alternative (project site): any repo name (you’ll set `baseurl`)
 2. Put these files in that repo (or push this folder).
 3. In GitHub: **Settings → Pages**
@@ -14,7 +14,7 @@ This is a simple Jekyll-powered personal website + blog that can be hosted on Gi
 4. Update `_config.yml`:
    - For a user site repo: keep `baseurl: ""`
    - For a project repo: set `baseurl: "/<repo-name>"`
-   - Optional: set `url: "https://<your-github-username>.github.io"`
+   - Optional: set `url: "https://<your-github-username>.github.io"` (for you: `https://sunidhiashtekar.github.io`)
 
 GitHub Pages will build and publish it automatically.
 
