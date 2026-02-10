@@ -8,14 +8,14 @@
         <p class="site-tagline">{{ site.tagline | default: site.description }}</p>
       </div>
       {% assign avatar_src = site.avatar | default: site.author.avatar %}
-      <button class="site-avatar-button" type="button" aria-label="Open profile photo" aria-controls="profile-photo-modal">
+      <div class="site-avatar-frame" aria-label="Profile photo">
         <img
           class="site-avatar"
           src="{{ avatar_src | relative_url }}?v={{ site.time | date: '%s' }}"
           alt="{{ site.author.name | default: site.title }}"
           loading="lazy"
         />
-      </button>
+      </div>
     </div>
 
     <nav class="site-nav" aria-label="Primary">
@@ -23,16 +23,5 @@
       <a class="site-nav__link {% if page.url == '/about/' %}is-active{% endif %}" href="{{ '/about/' | relative_url }}">About me</a>
       <a class="site-nav__link {% if page.url == '/tags/' %}is-active{% endif %}" href="{{ '/tags/' | relative_url }}">Tags</a>
     </nav>
-  </div>
-
-  <div id="profile-photo-modal" class="avatar-modal" aria-hidden="true">
-    <button class="avatar-modal__backdrop" type="button" aria-label="Close profile photo"></button>
-    <figure class="avatar-modal__content">
-      <img
-        src="{{ avatar_src | relative_url }}?v={{ site.time | date: '%s' }}"
-        alt="{{ site.author.name | default: site.title }} profile photo"
-      />
-      <button class="avatar-modal__close" type="button" aria-label="Close">Close</button>
-    </figure>
   </div>
 </header>
