@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<section class="tags-page">
+  <header class="page__header">
+    <h1 class="page__title">{{ page.title }}</h1>
+    <p class="page__subtitle">Browse posts by topic.</p>
+  </header>
+
+  {% if site.tags.size > 0 %}
+    {% assign sorted_tags = site.tags | sort %}
+    <ul class="tags-index">
+      {% for entry in sorted_tags %}
+        {% assign tag_name = entry[0] %}
+        {% assign tag_slug = tag_name | slugify %}
+        <li>
+          <a href="#{{ tag_slug }}">{{ tag_name }} <span>({{ entry[1].size }})</span></a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for entry in sorted_tags %}
+      {% assign tag_name = entry[0] %}
+      {% assign tag_slug = tag_name | slugify %}
+      {% assign tagged_posts = entry[1] %}
+      <section id="{{ tag_slug }}" class="tag-group">
+        <h2 class="tag-group__title">{{ tag_name }}</h2>
+        <ul class="tag-posts">
+          {% for post in tagged_posts %}
+            {% assign words = post.content | number_of_words %}
+            {% assign minutes = words | divided_by: 200 %}
+            {% if minutes < 1 %}
+              {% assign minutes = 1 %}
+            {% endif %}
+            <li class="tag-posts__item">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span>{{ post.date | date: "%b %d, %Y" }}</span>
+              <span>·</span>
+              <span>{{ minutes }} min read</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  {% else %}
+    <p>No tags yet.</p>
+  {% endif %}
+</section>

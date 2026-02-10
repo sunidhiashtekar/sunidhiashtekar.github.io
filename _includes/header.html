@@ -1,14 +1,14 @@
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="{{ '/' | relative_url }}">
-      <span class="brand__name">{{ site.title }}</span>
-      <span class="brand__tag">{{ site.description }}</span>
+  <div class="wrap site-header__inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      {{ site.title }}
     </a>
+    <p class="site-tagline">{{ site.tagline | default: site.description }}</p>
 
-    <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="{{ '/' | relative_url }}">Home</a>
-      <a class="nav__link" href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a class="nav__link" href="{{ '/about/' | relative_url }}">About me</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link {% if page.url == '/' %}is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+      <a class="site-nav__link {% if page.url == '/about/' %}is-active{% endif %}" href="{{ '/about/' | relative_url }}">About me</a>
+      <a class="site-nav__link {% if page.url == '/tags/' %}is-active{% endif %}" href="{{ '/tags/' | relative_url }}">Tags</a>
     </nav>
   </div>
 </header>

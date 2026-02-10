@@ -2,52 +2,57 @@
 layout: default
 ---
 
-<section class="hero">
-  <p class="hero__kicker">Hello, I am</p>
-  <h1 class="hero__title">Sunidhi Ashtekar.</h1>
-  <p class="hero__lead">
-    I write about computer vision, generative AI, and machine learning. This is where I publish essays, notes, and project write-ups.
-  </p>
-</section>
-
-<section class="section">
-  <div class="section__header">
-    <h2 class="section__title">Latest Posts</h2>
-  </div>
-
-  {% assign recent = site.posts | slice: 0, 5 %}
-  {% if recent.size > 0 %}
-    <ul class="posts">
-      {% for post in recent %}
-        {% assign cover = post.cover | default: site.default_cover %}
+<section class="feed" aria-label="Posts">
+  {% if site.posts.size > 0 %}
+    <ul class="feed-list">
+      {% for post in site.posts %}
         {% assign words = post.content | number_of_words %}
         {% assign minutes = words | divided_by: 200 %}
         {% if minutes < 1 %}
           {% assign minutes = 1 %}
         {% endif %}
-        <li class="posts__item">
-          <a class="posts__link" href="{{ post.url | relative_url }}">
-            <div class="posts__date">
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-              <span class="dot">·</span>
-              <span>{{ minutes }} min read</span>
+        {% assign cover = post.cover | default: post.image | default: post.cover_image | default: post.thumbnail %}
+        {% assign excerpt_text = post.excerpt | strip_html | strip_newlines %}
+        {% if excerpt_text == "" %}
+          {% assign excerpt_text = post.content | strip_html | strip_newlines %}
+        {% endif %}
+        <li class="feed-item">
+          <a class="feed-link" href="{{ post.url | relative_url }}">
+            <div class="feed-main">
+              <div class="feed-author">
+                {% if site.author.avatar %}
+                  <img class="feed-author__avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" loading="lazy" />
+                {% endif %}
+                <span>{{ site.author.name }}</span>
+              </div>
+              <h2 class="feed-title">{{ post.title }}</h2>
+              <p class="feed-excerpt">{{ excerpt_text | truncatewords: 30 }}</p>
+              <p class="feed-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                <span class="dot">·</span>
+                <span>{{ minutes }} min read</span>
+                {% if post.tags and post.tags.size > 0 %}
+                  <span class="dot">·</span>
+                  <span class="feed-tags">
+                    {% for t in post.tags limit: 3 %}
+                      <span class="feed-tag">{{ t }}</span>
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </p>
             </div>
-            <div class="posts__body">
-              <div class="posts__title">{{ post.title }}</div>
-              {% if post.subtitle %}
-                <div class="posts__excerpt">{{ post.subtitle }}</div>
-              {% elsif post.excerpt %}
-                <div class="posts__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</div>
+            <div class="feed-thumb">
+              {% if cover %}
+                <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover image" loading="lazy" />
+              {% else %}
+                <div class="feed-thumb__placeholder"></div>
               {% endif %}
-            </div>
-            <div class="posts__media">
-              <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
             </div>
           </a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>No posts yet. Your first post is ready in <code>_posts/</code>.</p>
+    <p>No posts yet. Add one in <code>_posts/</code>.</p>
   {% endif %}
 </section>
