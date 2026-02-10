@@ -6,9 +6,6 @@ author:
   bio: "I work on practical ML systems, from research to deployment."
   avatar: "/assets/images/profile.svg"
 default_cover: "/assets/images/covers/default.svg"
-social:
-  medium: "https://medium.com/@sunidhi.ashtekar"
-  github: "https://github.com/sunidhiashtekar"
 
 # Hosting notes:
 # - If this is a GitHub *user* site repo named <username>.github.io, keep baseurl empty.
@@ -21,7 +18,6 @@ markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
 
 defaults:

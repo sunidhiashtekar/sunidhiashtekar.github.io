@@ -12,14 +12,6 @@ layout: default
         {% if site.author.role %}
           <div class="post__author-role">{{ site.author.role }}</div>
         {% endif %}
-        <div class="post__author-links">
-          {% if site.social.medium %}
-            <a href="{{ site.social.medium }}">Medium</a>
-          {% endif %}
-          {% if site.social.github %}
-            <a href="{{ site.social.github }}">GitHub</a>
-          {% endif %}
-        </div>
       </div>
     </div>
 
@@ -62,14 +54,6 @@ layout: default
       <p class="author-card__bio">
         {{ site.author.bio | default: "Writing about computer vision, generative AI, and machine learning." }}
       </p>
-      <div class="author-card__links">
-        {% if site.social.medium %}
-          <a href="{{ site.social.medium }}">Medium</a>
-        {% endif %}
-        {% if site.social.github %}
-          <a href="{{ site.social.github }}">GitHub</a>
-        {% endif %}
-      </div>
     </div>
   </aside>
 

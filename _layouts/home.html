@@ -8,38 +8,16 @@ layout: default
   <p class="hero__lead">
     I write about computer vision, generative AI, and machine learning. This is where I publish essays, notes, and project write-ups.
   </p>
-  <div class="hero__cta">
-    <a class="btn" href="{{ '/blog/' | relative_url }}">Read the blog</a>
-    <a class="btn btn--ghost" href="{{ '/about/' | relative_url }}">About me</a>
-  </div>
-</section>
-
-<section class="bio">
-  <div class="bio__content">
-    <p class="bio__title">Focused on practical ML systems and research-to-product work.</p>
-    <p class="bio__text">
-      I share experiments, design decisions, and lessons learned while building real-world models.
-    </p>
-  </div>
-  <div class="bio__links">
-    {% if site.social.medium %}
-      <a class="btn btn--ghost" href="{{ site.social.medium }}">Medium</a>
-    {% endif %}
-    {% if site.social.github %}
-      <a class="btn btn--ghost" href="{{ site.social.github }}">GitHub</a>
-    {% endif %}
-  </div>
 </section>
 
 <section class="section">
   <div class="section__header">
     <h2 class="section__title">Latest Posts</h2>
-    <a class="section__link" href="{{ '/blog/' | relative_url }}">All posts →</a>
   </div>
 
   {% assign recent = site.posts | slice: 0, 5 %}
   {% if recent.size > 0 %}
-    <ul class="cards">
+    <ul class="posts">
       {% for post in recent %}
         {% assign cover = post.cover | default: site.default_cover %}
         {% assign words = post.content | number_of_words %}
@@ -47,22 +25,24 @@ layout: default
         {% if minutes < 1 %}
           {% assign minutes = 1 %}
         {% endif %}
-        <li class="card">
-          <a class="card__link" href="{{ post.url | relative_url }}">
-            <div class="card__media">
-              <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
-            </div>
-            <div class="card__meta">
+        <li class="posts__item">
+          <a class="posts__link" href="{{ post.url | relative_url }}">
+            <div class="posts__date">
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
               <span class="dot">·</span>
               <span>{{ minutes }} min read</span>
             </div>
-            <h3 class="card__title">{{ post.title }}</h3>
-            {% if post.subtitle %}
-              <p class="card__excerpt">{{ post.subtitle }}</p>
-            {% elsif post.excerpt %}
-              <p class="card__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
-            {% endif %}
+            <div class="posts__body">
+              <div class="posts__title">{{ post.title }}</div>
+              {% if post.subtitle %}
+                <div class="posts__excerpt">{{ post.subtitle }}</div>
+              {% elsif post.excerpt %}
+                <div class="posts__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</div>
+              {% endif %}
+            </div>
+            <div class="posts__media">
+              <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
+            </div>
           </a>
         </li>
       {% endfor %}
