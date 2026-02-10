@@ -1,12 +1,12 @@
 title: "Sunidhi Ashtekar"
 description: "Writing about computer vision, generative AI, and machine learning."
 tagline: "AI engineer documenting computer vision and GenAI trends with real experiments and practical insights."
-avatar: "/assets/images/profile.jpg"
+avatar: "/assets/images/profile-v2.jpg"
 author:
   name: "Sunidhi Ashtekar"
   role: "Computer Vision, Generative AI, and Machine Learning"
   bio: "I work on practical ML systems, from research to deployment."
-  avatar: "/assets/images/profile.jpg"
+  avatar: "/assets/images/profile-v2.jpg"
 default_cover: "/assets/images/covers/default.svg"
 social:
   linkedin: "https://www.linkedin.com/in/sunidhiashtekar"

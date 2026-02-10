@@ -7,8 +7,8 @@
         </a>
         <p class="site-tagline">{{ site.tagline | default: site.description }}</p>
       </div>
-      <a class="site-avatar-link" href="{{ '/about/' | relative_url }}" aria-label="About me">
-        {% assign avatar_src = site.avatar | default: site.author.avatar %}
+      {% assign avatar_src = site.avatar | default: site.author.avatar %}
+      <a class="site-avatar-link" href="#profile-photo-modal" aria-label="Open profile photo">
         <img
           class="site-avatar"
           src="{{ avatar_src | relative_url }}?v={{ site.time | date: '%s' }}"
@@ -23,5 +23,16 @@
       <a class="site-nav__link {% if page.url == '/about/' %}is-active{% endif %}" href="{{ '/about/' | relative_url }}">About me</a>
       <a class="site-nav__link {% if page.url == '/tags/' %}is-active{% endif %}" href="{{ '/tags/' | relative_url }}">Tags</a>
     </nav>
+  </div>
+
+  <div id="profile-photo-modal" class="avatar-modal" aria-hidden="true">
+    <a class="avatar-modal__backdrop" href="#" aria-label="Close profile photo"></a>
+    <figure class="avatar-modal__content">
+      <img
+        src="{{ avatar_src | relative_url }}?v={{ site.time | date: '%s' }}"
+        alt="{{ site.author.name | default: site.title }} profile photo"
+      />
+      <a class="avatar-modal__close" href="#" aria-label="Close">Close</a>
+    </figure>
   </div>
 </header>
