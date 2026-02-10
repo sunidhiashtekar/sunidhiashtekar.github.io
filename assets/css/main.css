@@ -96,11 +96,12 @@ a {
 }
 
 .site-avatar {
-  width: 58px;
-  height: 58px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   border: 1px solid #d8d8d8;
   object-fit: cover;
+  object-position: 50% 26%;
 }
 
 .site-nav {
@@ -184,6 +185,7 @@ a {
   height: 26px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 50% 26%;
   border: 1px solid #e2e2e2;
 }
 
@@ -329,6 +331,7 @@ a {
   height: 34px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 50% 26%;
   border: 1px solid #e2e2e2;
 }
 
@@ -598,7 +601,7 @@ a {
   }
 
   .site-avatar {
-    width: 46px;
-    height: 46px;
+    width: 56px;
+    height: 56px;
   }
 }
