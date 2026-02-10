@@ -2,6 +2,9 @@ title: "Sunidhi Ashtekar"
 description: "Writing about computer vision, generative AI, and machine learning."
 author:
   name: "Sunidhi Ashtekar"
+  role: "Computer Vision, Generative AI, and Machine Learning"
+  bio: "I work on practical ML systems, from research to deployment."
+  avatar: "/assets/images/profile.svg"
 default_cover: "/assets/images/covers/default.svg"
 social:
   medium: "https://medium.com/@sunidhi.ashtekar"
