@@ -17,7 +17,8 @@ layout: default
           {% assign excerpt_text = post.content | strip_html | strip_newlines %}
         {% endif %}
         <li class="feed-item">
-          <a class="feed-link" href="{{ post.url | relative_url }}">
+          <article class="feed-link{% unless cover %} feed-link--no-thumb{% endunless %}">
+            <a class="feed-link__overlay" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}"></a>
             <div class="feed-main">
               <div class="feed-author">
                 {% if site.author.avatar %}
@@ -35,20 +36,19 @@ layout: default
                   <span class="dot">·</span>
                   <span class="feed-tags">
                     {% for t in post.tags limit: 3 %}
-                      <span class="feed-tag">{{ t }}</span>
+                      {% assign tag_slug = t | slugify %}
+                      <a class="feed-tag" href="{{ '/tags/#' | append: tag_slug | relative_url }}">{{ t }}</a>
                     {% endfor %}
                   </span>
                 {% endif %}
               </p>
             </div>
-            <div class="feed-thumb">
-              {% if cover %}
+            {% if cover %}
+              <div class="feed-thumb">
                 <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover image" loading="lazy" />
-              {% else %}
-                <div class="feed-thumb__placeholder"></div>
-              {% endif %}
-            </div>
-          </a>
+              </div>
+            {% endif %}
+          </article>
         </li>
       {% endfor %}
     </ul>

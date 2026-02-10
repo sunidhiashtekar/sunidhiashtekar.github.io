@@ -1,9 +1,21 @@
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a class="site-title" href="{{ '/' | relative_url }}">
-      {{ site.title }}
-    </a>
-    <p class="site-tagline">{{ site.tagline | default: site.description }}</p>
+    <div class="site-header__top">
+      <div class="site-brand">
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          {{ site.title }}
+        </a>
+        <p class="site-tagline">{{ site.tagline | default: site.description }}</p>
+      </div>
+      <a class="site-avatar-link" href="{{ '/about/' | relative_url }}" aria-label="About me">
+        <img
+          class="site-avatar"
+          src="{{ site.avatar | default: site.author.avatar | relative_url }}"
+          alt="{{ site.author.name | default: site.title }}"
+          loading="lazy"
+        />
+      </a>
+    </div>
 
     <nav class="site-nav" aria-label="Primary">
       <a class="site-nav__link {% if page.url == '/' %}is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
