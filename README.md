@@ -37,6 +37,4 @@ Write your post here in Markdown.
 
 ## Local Preview (Optional)
 
-If you want local preview, tell me what you have installed (Ruby/Node/Docker) and I’ll set up the easiest option for your machine.
-
-Then open the printed localhost URL.
+This repo doesn’t include local preview tooling. If you want a local preview setup, add Jekyll and a `Gemfile`.
