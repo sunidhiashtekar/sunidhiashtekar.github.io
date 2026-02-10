@@ -1,15 +1,11 @@
 ---
 title: "About"
 permalink: /about/
-subtitle: "A few things I’m curious about, learning, and building."
+subtitle: "Background, interests, and what I write about."
 ---
 
-Hi — I’m **Sunidhi Ashtekar**.
+Hi, I am **Sunidhi Ashtekar**.
 
-This site is where I write as I learn: notes from projects, deep-dives, and whatever I’m thinking about lately.
+I work on computer vision, generative AI, and machine learning. This site is for longer notes, project write-ups, and experiments.
 
-If you want, I can add:
-- a projects page
-- a newsletter signup
-- a “now” page
-- a contact page (email / social links)
+You can find more writing on [Medium]({{ site.social.medium }}) and code on [GitHub]({{ site.social.github }}).

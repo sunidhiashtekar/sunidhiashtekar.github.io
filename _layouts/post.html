@@ -5,8 +5,18 @@ layout: default
 <article class="post">
   <header class="post__header">
     <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <p class="post__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
     <p class="post__meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% assign words = content | number_of_words %}
+      {% assign minutes = words | divided_by: 200 %}
+      {% if minutes < 1 %}
+        {% assign minutes = 1 %}
+      {% endif %}
+      <span class="dot">·</span>
+      <span>{{ minutes }} min read</span>
       {% if page.tags and page.tags.size > 0 %}
         ·
         {% for t in page.tags %}
@@ -16,9 +26,33 @@ layout: default
     </p>
   </header>
 
+  {% assign cover = page.cover | default: site.default_cover %}
+  {% if cover %}
+    <figure class="post__cover">
+      <img src="{{ cover | relative_url }}" alt="{{ page.title }} cover" loading="lazy" />
+    </figure>
+  {% endif %}
+
   <div class="prose">
     {{ content }}
   </div>
+
+  <aside class="author-card">
+    <div class="author-card__content">
+      <div class="author-card__name">{{ site.author.name | default: site.title }}</div>
+      <p class="author-card__bio">
+        Writing about computer vision, generative AI, and machine learning. Follow along for new posts and project write-ups.
+      </p>
+      <div class="author-card__links">
+        {% if site.social.medium %}
+          <a href="{{ site.social.medium }}">Medium</a>
+        {% endif %}
+        {% if site.social.github %}
+          <a href="{{ site.social.github }}">GitHub</a>
+        {% endif %}
+      </div>
+    </div>
+  </aside>
 
   <footer class="post__footer">
     <a class="back" href="{{ '/blog/' | relative_url }}">← Back to all posts</a>

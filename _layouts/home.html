@@ -3,14 +3,31 @@ layout: default
 ---
 
 <section class="hero">
-  <p class="hero__kicker">Hello, I’m</p>
+  <p class="hero__kicker">Hello, I am</p>
   <h1 class="hero__title">Sunidhi Ashtekar.</h1>
   <p class="hero__lead">
-    This is my corner of the internet: short notes, longer essays, and projects I’m building.
+    I write about computer vision, generative AI, and machine learning. This is where I publish essays, notes, and project write-ups.
   </p>
   <div class="hero__cta">
     <a class="btn" href="{{ '/blog/' | relative_url }}">Read the blog</a>
     <a class="btn btn--ghost" href="{{ '/about/' | relative_url }}">About me</a>
+  </div>
+</section>
+
+<section class="bio">
+  <div class="bio__content">
+    <p class="bio__title">Focused on practical ML systems and research-to-product work.</p>
+    <p class="bio__text">
+      I share experiments, design decisions, and lessons learned while building real-world models.
+    </p>
+  </div>
+  <div class="bio__links">
+    {% if site.social.medium %}
+      <a class="btn btn--ghost" href="{{ site.social.medium }}">Medium</a>
+    {% endif %}
+    {% if site.social.github %}
+      <a class="btn btn--ghost" href="{{ site.social.github }}">GitHub</a>
+    {% endif %}
   </div>
 </section>
 
@@ -24,13 +41,26 @@ layout: default
   {% if recent.size > 0 %}
     <ul class="cards">
       {% for post in recent %}
+        {% assign cover = post.cover | default: site.default_cover %}
+        {% assign words = post.content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}
+          {% assign minutes = 1 %}
+        {% endif %}
         <li class="card">
           <a class="card__link" href="{{ post.url | relative_url }}">
+            <div class="card__media">
+              <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
+            </div>
             <div class="card__meta">
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+              <span class="dot">·</span>
+              <span>{{ minutes }} min read</span>
             </div>
             <h3 class="card__title">{{ post.title }}</h3>
-            {% if post.excerpt %}
+            {% if post.subtitle %}
+              <p class="card__excerpt">{{ post.subtitle }}</p>
+            {% elsif post.excerpt %}
               <p class="card__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</p>
             {% endif %}
           </a>

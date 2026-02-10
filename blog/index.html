@@ -12,16 +12,29 @@ permalink: /blog/
   {% if site.posts.size > 0 %}
     <ul class="posts">
       {% for post in site.posts %}
+        {% assign cover = post.cover | default: site.default_cover %}
+        {% assign words = post.content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}
+          {% assign minutes = 1 %}
+        {% endif %}
         <li class="posts__item">
           <a class="posts__link" href="{{ post.url | relative_url }}">
             <div class="posts__date">
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+              <span class="dot">·</span>
+              <span>{{ minutes }} min read</span>
             </div>
             <div class="posts__body">
               <div class="posts__title">{{ post.title }}</div>
-              {% if post.excerpt %}
+              {% if post.subtitle %}
+                <div class="posts__excerpt">{{ post.subtitle }}</div>
+              {% elsif post.excerpt %}
                 <div class="posts__excerpt">{{ post.excerpt | strip_html | strip_newlines }}</div>
               {% endif %}
+            </div>
+            <div class="posts__media">
+              <img src="{{ cover | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
             </div>
           </a>
         </li>

@@ -1,7 +1,11 @@
 title: "Sunidhi Ashtekar"
-description: "Personal website and blog."
+description: "Writing about computer vision, generative AI, and machine learning."
 author:
   name: "Sunidhi Ashtekar"
+default_cover: "/assets/images/covers/default.svg"
+social:
+  medium: "https://medium.com/@sunidhi.ashtekar"
+  github: "https://github.com/sunidhiashtekar"
 
 # Hosting notes:
 # - If this is a GitHub *user* site repo named <username>.github.io, keep baseurl empty.
