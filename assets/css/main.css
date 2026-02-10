@@ -76,7 +76,7 @@ a {
   display: inline-block;
   text-decoration: none;
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(32px, 4.6vw, 52px);
+  font-size: clamp(30px, 4vw, 46px);
   line-height: 1.08;
   letter-spacing: -0.025em;
   font-weight: 700;
@@ -86,7 +86,8 @@ a {
 .site-tagline {
   margin: 0 0 16px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 16px;
+  max-width: 840px;
 }
 
 .site-avatar-link {
@@ -95,10 +96,10 @@ a {
 }
 
 .site-avatar {
-  width: 36px;
-  height: 36px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #d8d8d8;
   object-fit: cover;
 }
 
@@ -190,7 +191,7 @@ a {
   margin: 0 0 7px;
   font-family: "Space Grotesk", system-ui, sans-serif;
   letter-spacing: -0.015em;
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: clamp(22px, 2.4vw, 30px);
   line-height: 1.2;
 }
 
@@ -268,7 +269,7 @@ a {
   margin: 0 0 6px;
   font-family: "Space Grotesk", system-ui, sans-serif;
   letter-spacing: -0.015em;
-  font-size: clamp(30px, 3vw, 38px);
+  font-size: clamp(28px, 2.4vw, 34px);
   line-height: 1.14;
 }
 
@@ -550,11 +551,11 @@ a {
   }
 
   .site-title {
-    font-size: clamp(28px, 8vw, 40px);
+    font-size: clamp(26px, 7vw, 34px);
   }
 
   .site-tagline {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 14px;
   }
 
@@ -581,7 +582,7 @@ a {
   }
 
   .feed-title {
-    font-size: clamp(22px, 7vw, 30px);
+    font-size: clamp(20px, 6vw, 26px);
   }
 
   .feed-excerpt {
@@ -589,7 +590,7 @@ a {
   }
 
   .page__title {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .prose {
@@ -597,7 +598,7 @@ a {
   }
 
   .site-avatar {
-    width: 32px;
-    height: 32px;
+    width: 46px;
+    height: 46px;
   }
 }

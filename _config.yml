@@ -1,6 +1,6 @@
 title: "Sunidhi Ashtekar"
 description: "Writing about computer vision, generative AI, and machine learning."
-tagline: "Computer Vision + Multimodal GenAI Engineer | Bay Area"
+tagline: "AI engineer documenting computer vision and GenAI trends with real experiments and practical insights."
 avatar: "/assets/images/profile.svg"
 author:
   name: "Sunidhi Ashtekar"
@@ -9,9 +9,9 @@ author:
   avatar: "/assets/images/profile.svg"
 default_cover: "/assets/images/covers/default.svg"
 social:
-  linkedin: "https://www.linkedin.com/in/sunidhi-ashtekar"
+  linkedin: "https://www.linkedin.com/in/sunidhiashtekar"
   github: "https://github.com/sunidhiashtekar"
-  x: "https://x.com/sunidhiashtekar"
+  x: "https://x.com/_codemeow"
   medium: "https://medium.com/@sunidhi.ashtekar"
 
 # Hosting notes:
